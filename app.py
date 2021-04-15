@@ -39,7 +39,7 @@ if st.button('Predict the Digit'):
     test_x = (torch.from_numpy(test_x)).float()
     test_x = (test_x).unsqueeze(0)
     val = model(test_x)
-    val = val[0].to('cpu').numpy()
+    val = val[0].to('cpu').detach().numpy()
     val = np.abs(val)
     val = val / np.sum(val)
     st.write(f'result: {np.argmax(val)}')
