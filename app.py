@@ -7,7 +7,7 @@ from streamlit_drawable_canvas import st_canvas
 from torch._C import dtype
 import torch.nn.functional as F
 
-model = torch.load('models/CNN10.pt')
+model = torch.load('models/CNN10.pt', map_location=torch.device('cpu'))
 model.eval()
 
 st.title("Handwritten Digit Recognition Web App")
